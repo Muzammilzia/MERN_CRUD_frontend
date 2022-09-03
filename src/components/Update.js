@@ -11,7 +11,7 @@ const Update = (props) => {
 
   const HandleSubmit = (e) => {
     e.preventDefault();
-    axios.put('http://localhost:5000/', {
+    axios.put('https://git.heroku.com/merncrudapp1.git/', {
       id: id,
       name: name,
       age: Number(age),
