@@ -6,7 +6,7 @@ const RightPanel = () => {
   const [userData, setUserData] = useState([])
 
   const getData = () => {
-    axios.get('https://git.heroku.com/merncrudapp1.git/')
+    axios.get('https://merncrudapp1.herokuapp.com/')
     .then(response => {
       const {data} = response
       setUserData(data.map( (person, index) => {

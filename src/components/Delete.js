@@ -8,7 +8,7 @@ const Delete = (props) => {
 
   const HandleSubmit = (e) => {
     e.preventDefault();
-    axios.delete(`https://git.heroku.com/merncrudapp1.git/${id}`)
+    axios.delete(`https://merncrudapp1.herokuapp.com/${id}`)
     .then(res => {
       setMessage(res.data)
       setTimeout(() => setMessage(""), 3000);

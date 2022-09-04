@@ -10,7 +10,7 @@ const Add = (props) => {
 
   const HandleSubmit = (e) => {
     e.preventDefault();
-    axios.post('https://git.heroku.com/merncrudapp1.git/', {
+    axios.post('https://merncrudapp1.herokuapp.com/', {
       name: name,
       age: Number(age),
       email: mail
