@@ -3,6 +3,7 @@ import { StyledForm, StyledSpan, StyledFormContainer, StyledInput, StyledLabel, 
 import axios from 'axios'
 
 const Update = (props) => {
+  const {current, callData, setCallData} = props
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [mail, setMail] = useState("");
@@ -18,6 +19,7 @@ const Update = (props) => {
       email: mail
     })
     .then(res => {
+      setCallData(!callData)
       setMessage(res.data)
       setTimeout(() => setMessage(""), 3000);
     })
@@ -25,7 +27,7 @@ const Update = (props) => {
   }
 
   return (
-    <StyledFormContainer style = {{transform: `translateX(-${props.current}00%)`}}>
+    <StyledFormContainer style = {{transform: `translateX(-${current}00%)`}}>
         <StyledForm onSubmit={(e) => HandleSubmit(e)}>
           <StyledLabel>
             <StyledSpan>User_id:</StyledSpan>

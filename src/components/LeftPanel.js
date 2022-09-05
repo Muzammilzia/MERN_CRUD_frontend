@@ -5,7 +5,8 @@ import { ButtonContainer, StyledContainer, StyledButton } from './styles/LeftPan
 import { Update } from './Update';
 
 
-const LeftPanel = () => {
+const LeftPanel = (props) => {
+    const {callData, setCallData} = props
     const [current, setCurrent] = useState(0)
   return (
     <div style={{paddingTop: "50px"}}>
@@ -15,9 +16,9 @@ const LeftPanel = () => {
             <StyledButton  onClick={() => setCurrent(2)} style = {{backgroundColor: current === 2 ? 'rgb(34, 34, 42)' : '#efefef', color: current === 2 ? 'white' : 'black'}}>Delete</StyledButton>
         </ButtonContainer>
         <StyledContainer>
-            <Add current = {current}/>
-            <Update  current = {current}/>
-            <Delete current = {current}/>
+            <Add current = {current} callData = {callData} setCallData = {setCallData}/>
+            <Update  current = {current} callData = {callData} setCallData = {setCallData}/>
+            <Delete current = {current} callData = {callData} setCallData = {setCallData}/>
         </StyledContainer>
     </div>
   )

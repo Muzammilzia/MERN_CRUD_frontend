@@ -2,14 +2,16 @@ import styled from "styled-components";
 
 export const StyledRightPanel = styled.div`
     min-width: 500px;
-    padding-bottom: 30px;
-    margin-top: 50px;
+    max-height: 500px;
+    padding: 30px 0;   
     background-color: rgb(34, 34, 42);
     border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    overflow-y: auto;
+    
+`
+export const StyledUlContainer = styled.div`
+    width: 80%;
+    margin: auto;
 `
 
 export const StyledGetButton = styled.button`
@@ -37,12 +39,15 @@ export const StyledHeading = styled.h1`
     //background-color: rgb(34, 34, 42);
     //color: white;
     background-color: #efefef;
-    width: 100%;
+    width: 500px;
     margin: 0;
     border: 2px solid black;
-    margin-bottom: 5px;
     border-radius: 15px;
-    padding-left: 25px;
+    text-align: center;
+    margin-top: 50px;
+    @media (min-width: 1004px) {
+        margin-top: 0;
+    }
 `
 export const StyledUl = styled.ul`
     margin: 0;

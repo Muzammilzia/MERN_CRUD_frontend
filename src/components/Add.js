@@ -3,6 +3,7 @@ import { StyledForm, StyledSpan, StyledFormContainer, StyledInput, StyledLabel, 
 import axios from 'axios'
 
 const Add = (props) => {
+  const {current, callData, setCallData} = props
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [mail, setMail] = useState("");
@@ -16,6 +17,7 @@ const Add = (props) => {
       email: mail
     })
     .then(res => {
+      setCallData(!callData)
       setMessage(res.data)
       setTimeout(() => setMessage(""), 3000);
     })
@@ -23,8 +25,10 @@ const Add = (props) => {
   }
 
   return (
-    <StyledFormContainer style = {{transform: `translateX(-${props.current}00%)`}}>
-        <StyledForm onSubmit={(e) => HandleSubmit(e)}>
+    <StyledFormContainer style = {{transform: `translateX(-${current}00%)`}}>
+        <StyledForm onSubmit={(e) => {
+            HandleSubmit(e)
+          }}>
           <StyledLabel>
             <StyledSpan>Name:</StyledSpan>
             <StyledInput type="text" placeholder='Name' value={name} onChange={event => setName(event.target.value)} />

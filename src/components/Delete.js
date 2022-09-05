@@ -3,6 +3,7 @@ import { StyledForm, StyledSpan, StyledFormContainer, StyledInput, StyledLabel, 
 import axios from 'axios'
 
 const Delete = (props) => {
+  const {current, callData, setCallData} = props
   const [id, setId] = useState("");
   const [message, setMessage] = useState("");
 
@@ -10,6 +11,7 @@ const Delete = (props) => {
     e.preventDefault();
     axios.delete(`https://merncrudapp1.herokuapp.com/${id}`)
     .then(res => {
+      setCallData(!callData)
       setMessage(res.data)
       setTimeout(() => setMessage(""), 3000);
     })
@@ -17,7 +19,7 @@ const Delete = (props) => {
   }
 
   return (
-    <StyledFormContainer style = {{transform: `translateX(-${props.current}00%)`}}>
+    <StyledFormContainer style = {{transform: `translateX(-${current}00%)`}}>
         <StyledForm onSubmit={(e) => HandleSubmit(e)}>
           <StyledLabel>
             <StyledSpan>User_id:</StyledSpan>

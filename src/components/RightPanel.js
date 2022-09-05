@@ -1,11 +1,13 @@
-import React, {useState} from 'react'
-import { StyledGetButton, StyledHeading, StyledLi, StyledRightPanel, StyledUl } from './styles/RightPanel.styled'
+import React, {useState, useEffect} from 'react'
+import { StyledHeading, StyledUlContainer, StyledLi, StyledRightPanel, StyledUl } from './styles/RightPanel.styled'
 import axios from 'axios'
 
-const RightPanel = () => {
+const RightPanel = (props) => {
+  const {callData} = props
   const [userData, setUserData] = useState([])
 
-  const getData = () => {
+  useEffect(() => {
+    console.log("here")
     axios.get('https://merncrudapp1.herokuapp.com/')
     .then(response => {
       const {data} = response
@@ -20,16 +22,19 @@ const RightPanel = () => {
       }))
     })
     .catch(err => console.log(err))
-  }
+  }, [callData])
 
   return (
-    <StyledRightPanel>
+    <div>
       <StyledHeading>
         Users in Database
-        <StyledGetButton onClick={() => getData()}>Refresh</StyledGetButton>
       </StyledHeading>
-      {userData}      
-    </StyledRightPanel>
+      <StyledRightPanel>
+        <StyledUlContainer>
+          {userData}      
+        </StyledUlContainer>
+      </StyledRightPanel>
+    </div>
   )
 }
 
